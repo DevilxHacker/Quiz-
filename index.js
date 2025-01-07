@@ -167,7 +167,11 @@ function Checkin(e) {
 
   if (e === "true") {
     score++;
+<<<<<<< HEAD
     button.innerHTML = "Congrats! Your answer is correct";
+=======
+    button.innerHTML = "Your answer is correct";
+>>>>>>> ceb474c4a689daf4c256e2ea8d7180e520df0682
   } else {
     button.innerHTML = "Wrong: Answer is " + question_set[CurrentQuestionNo].RightAnswer;
   }
