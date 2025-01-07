@@ -162,7 +162,7 @@ function Checkin(e, c) {
 
   if (e === "true") {
     score++;
-    button.innerHTML = "Your answer is correct Correct";
+    button.innerHTML = "Your answer is correct";
   } else {
     button.innerHTML = "Wrong: Answer is" + c;
   }
