@@ -7,6 +7,7 @@ const question_set = [
       { text: "Mumbai", correct: "false" },
       { text: "Chennai", correct: "false" },
     ],
+    RightAnswer:"Delhi",
   },
   {
     question: "The term ‘ Putt’ is used in the sport ______ ?",
@@ -16,6 +17,7 @@ const question_set = [
       { text: "Golf", correct: "true" },
       { text: "Football ", correct: "false" },
     ],
+    RightAnswer:"Golf",
   },
   {
     question:
@@ -26,6 +28,7 @@ const question_set = [
       { text: "Table Tennis", correct: "false" },
       { text: "Car Racing", correct: "true" },
     ],
+    RightAnswer:"Car Racing",
   },
   {
     question:
@@ -36,6 +39,7 @@ const question_set = [
       { text: "1972", correct: "false" },
       { text: "1960", correct: "false" },
     ],
+    RightAnswer:"1948",
   },
   {
     question: "Capital of India",
@@ -45,6 +49,7 @@ const question_set = [
       { text: "Mumbai", correct: "false" },
       { text: "Chennai", correct: "false" },
     ],
+    RightAnswer:"Delhi",
   },
   {
     question: "The Khelo India Youth Gaes was previously called_____ ?",
@@ -54,6 +59,7 @@ const question_set = [
       { text: "Khelo Bharat School Games", correct: "false" },
       { text: "Khelo India School Games", correct: "true" },
     ],
+    RightAnswer:"Khelo India School Games",
   },
   {
     question:
@@ -64,6 +70,7 @@ const question_set = [
       { text: "Cricket", correct: "false" },
       { text: "Hockey", correct: "false" },
     ],
+    RightAnswer:"Chess",
   },
   {
     question:
@@ -74,6 +81,7 @@ const question_set = [
       { text: "Leander Paes ", correct: "false" },
       { text: "Karnam Malleshwari", correct: "false" },
     ],
+    RightAnswer:"KD Jadhav",
   },
   {
     question: "The term ‘Cherry Picking’ is used in which sport ?",
@@ -83,6 +91,7 @@ const question_set = [
       { text: "Basketball", correct: "true" },
       { text: "Cricket ", correct: "false" },
     ],
+    RightAnswer:"Basketball",
   },
   {
     question: "The term ‘Dolphin Kick’ is associated with which sport ?",
@@ -92,6 +101,7 @@ const question_set = [
       { text: "Rugby", correct: "false" },
       { text: "Football", correct: "false" },
     ],
+    RightAnswer:"Swimming",
   },
 ];
 
@@ -132,14 +142,10 @@ function show() {
       NewDiv.appendChild(NewButton);
       answer.appendChild(NewDiv);
 
-      if (ans.correct == "true") {
-        var a = ans.text;
-        console.log(a);
-      }
 
       NewButton.addEventListener("click", () => {
         console.log("Clicked");
-        Checkin(ans.correct, a);
+        Checkin(ans.correct);
       });
     });
   }
@@ -150,9 +156,8 @@ function buttonReset() {
     answer.firstChild.remove();
   }
 }
-function Checkin(e, c) {
+function Checkin(e) {
   console.log("Checking");
-  console.log(c);
   buttonReset();
   const div = document.createElement("div");
   const button = document.createElement("p");
@@ -162,9 +167,9 @@ function Checkin(e, c) {
 
   if (e === "true") {
     score++;
-    button.innerHTML = "Your answer is correct Correct";
+    button.innerHTML = "Congrats! Your answer is correct";
   } else {
-    button.innerHTML = "Wrong: Answer is" + c;
+    button.innerHTML = "Wrong: Answer is " + question_set[CurrentQuestionNo].RightAnswer;
   }
   CurrentQuestionNo++;
   setTimeout(() => {
